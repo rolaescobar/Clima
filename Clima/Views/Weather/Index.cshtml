@@ -1,0 +1,22 @@
+﻿
+@model Clima.Models.WeatherModel
+
+<form asp-action="GetWeather" method="post">
+
+    <div>
+        <label for="Ciudad">Ciudad</label>
+        <input asp-for="Ciudad" placeholder="Ingresar el nombre de la ciudad" />
+        <button type="submit">Obtener clima</button>
+    </div>
+
+</form><br />
+@if(Model != null && Model.Temperatura !=0)
+{
+    <div>
+        <h3>Clima en @Model.Ciudad, @Model.Pais</h3>
+        <p><strong>Temperatura: </strong>@Model.Temperatura °C</p>
+        <p><strong>Descripción: </strong>@Model.Descripcion</p>
+        <p><strong>Humedad: </strong>@Model.Humedad</p>
+        <p><strong>Viento: </strong>@Model.Viento m/s</p>
+    </div>
+}
